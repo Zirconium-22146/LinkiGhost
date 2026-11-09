@@ -70,8 +70,16 @@ static BOOL LinkiIsGhosted(uint32_t cid) {
         void (^completion)(id, id, id) = request.completed;
         if (completion != nil) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                completion(nil, nil, [[MTRpcError alloc] initWithErrorCode:kLinkiGhostErrorCode
-                                                           errorDescription:@"LINKIGHOST"]);
+                // MTRpcError lives in the Telegram binary, not in the tweak, so it
+                // must be looked up at runtime: a class literal would be an
+                // undefined symbol at link time.
+                Class errorClass = objc_getClass("MTRpcError");
+                id error = nil;
+                if (errorClass != Nil) {
+                    error = [[errorClass alloc] initWithErrorCode:kLinkiGhostErrorCode
+                                                 errorDescription:@"LINKIGHOST"];
+                }
+                completion(nil, nil, error);
             });
         }
         return;
