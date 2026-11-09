@@ -170,6 +170,10 @@ static BOOL LinkiBool(NSString *key, BOOL fallback) {
 - (void)addRequest:(MTRequest *)request;
 @end
 
+@interface MTRpcError : NSObject
+- (instancetype)initWithErrorCode:(int32_t)errorCode errorDescription:(NSString *)errorDescription;
+@end
+
 static uint32_t LinkiConstructorId(NSData *payload) {
     if (payload.length < 4) {
         return 0;
@@ -223,12 +227,15 @@ static void LinkiScheduleReport(void) {
                 gSeen, gGhostTyping, gGhostRead, gGhostOnline, gGhostAds];
 
             UIWindow *window = nil;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
             for (UIWindow *candidate in [UIApplication sharedApplication].windows) {
                 if (candidate.isKeyWindow) {
                     window = candidate;
                     break;
                 }
             }
+#pragma clang diagnostic pop
             UIViewController *controller = window.rootViewController;
             while (controller.presentedViewController != nil) {
                 controller = controller.presentedViewController;
@@ -310,8 +317,8 @@ static void LinkiScheduleReport(void) {
         Class errorClass = objc_getClass("MTRpcError");
         id error = nil;
         if (errorClass != Nil) {
-            error = [[errorClass alloc] initWithErrorCode:kLinkiGhostErrorCode
-                                         errorDescription:@"LINKIGHOST"];
+            error = [(MTRpcError *)[errorClass alloc] initWithErrorCode:kLinkiGhostErrorCode
+                                                       errorDescription:@"LINKIGHOST"];
         }
         completion(nil, nil, error);
     });
