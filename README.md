@@ -15,11 +15,23 @@ Ghost mode для официального Telegram на iOS: приложени
 | `messages.readEncryptedHistory` | «просмотрено» в секретных чатах |
 | `account.updateStatus` | статус «в сети» |
 
+## Поддерживаемые приложения
+
+| Приложение | Bundle ID |
+|---|---|
+| Telegram (App Store) | `ph.telegra.Telegraph` |
+| Telegram (сборка из исходников) | `org.telegram.Telegram` |
+| Swiftgram (App Store) | `app.swiftgram.ios` |
+
+Хук висит на класс `MTRequestMessageService` из MtProtoKit, общий для всех
+форков Telegram-iOS, поэтому работает в любом из них — нужен только
+правильный bundle id в фильтре.
+
 ## Требования
 
 - iOS 15.0–16.6.1, arm64 (iPhone 7 подходит)
 - palera1n / rootless джейлбрейк, ElleKit
-- Telegram из App Store
+- Telegram из App Store **или Swiftgram** (`app.swiftgram.ios`)
 - `iphoneos-arm64` (rootless) пакет
 
 ## Установка из «Загрузок»
