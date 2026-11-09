@@ -1,0 +1,9 @@
+Package: bond.linkigram.ghost
+Name: LinkiGhost
+Version: 0.1.0
+Architecture: iphoneos-arm64
+Description: LinkiGram ghost mode for Telegram: no "typing", no read receipts, no online status.
+Maintainer: LinkiGram
+Author: LinkiGram
+Section: Tweaks
+Depends: firmware (>= 15.0), mobilesubstrate (>= 0.9.5000) | ellekit
