@@ -54,3 +54,20 @@ Ghost mode для официального Telegram на iOS: приложени
 
 Sileo → LinkiGhost → Remove, либо удалить
 `/var/jb/Library/MobileSubstrate/DynamicLibraries/LinkiGhost.dylib`.
+
+## Настройки
+
+Настройки живут в **Настройки iPhone → LinkiGhost** (нужен PreferenceLoader —
+на palera1n он ставится вместе с бутстрапом).
+
+Твик читает значения по порядку:
+
+1. `/var/jb/etc/linkighost.plist` — ручной файл, если панель недоступна
+2. `/var/jb/var/mobile/Library/Preferences/bond.linkigram.ghost.plist`
+3. `/var/mobile/Library/Preferences/bond.linkigram.ghost.plist`
+
+Ключи: `Enabled`, `HideTyping`, `HideRead`, `HideOnline`, `BlockAds`,
+`LogEnabled`, `ShowAlert`. Изменения подхватываются на лету.
+
+Диагностика: лог лежит в `Documents/linkighost.log` внутри контейнера
+приложения (Filza → Apps → Telegram/Swiftgram → Documents).

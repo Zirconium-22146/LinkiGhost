@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Режим призрака</string>
+			<key>footerText</key>
+			<string>Твик для Telegram и Swiftgram. Изменения подхватываются без перезапуска приложения.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>label</key>
+			<string>Включено</string>
+			<key>key</key>
+			<string>Enabled</string>
+			<key>defaults</key>
+			<string>bond.linkigram.ghost</string>
+			<key>default</key>
+			<true/>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Что скрывать</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>label</key>
+			<string>«Печатает…»</string>
+			<key>key</key>
+			<string>HideTyping</string>
+			<key>defaults</key>
+			<string>bond.linkigram.ghost</string>
+			<key>default</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>label</key>
+			<string>Прочитано</string>
+			<key>key</key>
+			<string>HideRead</string>
+			<key>defaults</key>
+			<string>bond.linkigram.ghost</string>
+			<key>default</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>label</key>
+			<string>«В сети»</string>
+			<key>key</key>
+			<string>HideOnline</string>
+			<key>defaults</key>
+			<string>bond.linkigram.ghost</string>
+			<key>default</key>
+			<true/>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Дополнительно</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>label</key>
+			<string>Блокировать спонсорские сообщения</string>
+			<key>key</key>
+			<string>BlockAds</string>
+			<key>defaults</key>
+			<string>bond.linkigram.ghost</string>
+			<key>default</key>
+			<false/>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Диагностика</string>
+			<key>footerText</key>
+			<string>Лог пишется в Documents/linkighost.log внутри контейнера приложения (Filza → Apps → Telegram/Swiftgram → Documents).</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>label</key>
+			<string>Писать лог</string>
+			<key>key</key>
+			<string>LogEnabled</string>
+			<key>defaults</key>
+			<string>bond.linkigram.ghost</string>
+			<key>default</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>label</key>
+			<string>Показывать отчёт при запуске</string>
+			<key>key</key>
+			<string>ShowAlert</string>
+			<key>defaults</key>
+			<string>bond.linkigram.ghost</string>
+			<key>default</key>
+			<false/>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>LinkiGhost</string>
+</dict>
+</plist>
