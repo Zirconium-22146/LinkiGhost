@@ -12,14 +12,14 @@
 #import <objc/runtime.h>
 
 // TL constructor ids. Taken from TelegramApi/swift_scheme.tl; these never change.
-enum {
-    LinkiCIDSetTyping            = 0x58943ee2, // messages.setTyping
-    LinkiCIDSetEncryptedTyping   = 0x791451ed, // messages.setEncryptedTyping
-    LinkiCIDReadHistory          = 0x0e306d3a, // messages.readHistory
-    LinkiCIDChannelReadHistory   = 0xcc104937, // channels.readHistory
-    LinkiCIDReadEncryptedHistory = 0x7f4b690a, // messages.readEncryptedHistory
-    LinkiCIDAccountUpdateStatus  = 0x6628562c, // account.updateStatus
-};
+// Macros, not enum: 0xcc104937 does not fit into int and switch needs a real
+// integer constant expression.
+#define kLinkiCIDSetTyping            0x58943ee2u // messages.setTyping
+#define kLinkiCIDSetEncryptedTyping   0x791451edu // messages.setEncryptedTyping
+#define kLinkiCIDReadHistory          0x0e306d3au // messages.readHistory
+#define kLinkiCIDChannelReadHistory   0xcc104937u // channels.readHistory
+#define kLinkiCIDReadEncryptedHistory 0x7f4b690au // messages.readEncryptedHistory
+#define kLinkiCIDAccountUpdateStatus  0x6628562cu // account.updateStatus
 
 static const int32_t kLinkiGhostErrorCode = -1000;
 
@@ -48,12 +48,12 @@ static uint32_t LinkiConstructorId(NSData *payload) {
 
 static BOOL LinkiIsGhosted(uint32_t cid) {
     switch (cid) {
-        case LinkiCIDSetTyping:
-        case LinkiCIDSetEncryptedTyping:
-        case LinkiCIDReadHistory:
-        case LinkiCIDChannelReadHistory:
-        case LinkiCIDReadEncryptedHistory:
-        case LinkiCIDAccountUpdateStatus:
+        case kLinkiCIDSetTyping:
+        case kLinkiCIDSetEncryptedTyping:
+        case kLinkiCIDReadHistory:
+        case kLinkiCIDChannelReadHistory:
+        case kLinkiCIDReadEncryptedHistory:
+        case kLinkiCIDAccountUpdateStatus:
             return YES;
         default:
             return NO;
